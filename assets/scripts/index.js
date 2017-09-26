@@ -16,4 +16,6 @@ $(() => {
 $(() => {
   $('#chooseX').on('click', events.userSelectX)
   $('#chooseO').on('click', events.userSelectO)
+  // Selector for click event on the individual game icons
+  $('#zero').on('click', events.makeSelection)
 })
