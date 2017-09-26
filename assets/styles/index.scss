@@ -5,16 +5,20 @@ $game-board-border: 2px solid #3f3f3f;
 
 .game {
   border: 1px solid black;
-  height: 500px;
+  height: 360px;
 }
 .gameboard {
-  width: 500px;
-  height: 500px;
+  width: 340px;
+  height: 340px;
   margin: 25px auto;
 }
+.gamebutton {
+  text-align: center;
+  margin: 10px;
+}
 .gamesquare {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   float: left;
   color: #a5a2a2
 }
