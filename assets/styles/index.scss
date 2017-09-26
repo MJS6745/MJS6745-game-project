@@ -1,2 +1,27 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$game-board-border: 2px solid #3f3f3f;
+
+.game {
+  border: 1px solid black;
+  height: 500px;
+}
+.gameboard {
+  width: 500px;
+  height: 500px;
+  margin: 25px auto;
+}
+.gamesquare {
+  width: 150px;
+  height: 150px;
+  float: left;
+  color: #a5a2a2
+}
+#zero, #one, #two, #three, #four, #five {
+  border-bottom: $game-board-border;
+}
+#one, #four, #seven {
+  border-left: $game-board-border;
+  border-right: $game-board-border;
+}
