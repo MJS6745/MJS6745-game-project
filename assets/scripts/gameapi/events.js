@@ -22,9 +22,16 @@ const updateGame = (data) => {
 const getGames = (event) => {
   event.preventDefault()
   console.log('Get games in gameapi invoked')
-  gameApi.apiGetGames()
-    .then(gameUi.getGameSuccess)
-    .catch(gameUi.getGameFailure)
+  if (store.user !== undefined) {
+    gameApi.apiGetGames()
+      .then(gameUi.getGameSuccess)
+      .catch(gameUi.getGameFailure)
+  } else {
+    $('#getGamesMessage').text('Oops! You need to log in first')
+    $('#getGamesMessageModal').modal('show')
+    $('#getGamesModal').modal('hide')
+    return false
+  }
 }
 
 module.exports = {
