@@ -3,11 +3,11 @@
 let userOne = ''
 let userTwo = ''
 let playerTurn = 0
-const gameArray = ['a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a']
+const gameArray = ['', '', '', '', '', '', '', '', '']
 
 const clearBoard = (array) => {
   for (let i = 0; i < array.length; i++) {
-    array[i] = 'a'
+    array[i] = ''
   }
 }
 const userSelectX = () => {
@@ -84,7 +84,7 @@ const makeSelection = (event) => {
   // console.log('makeSelection invoked')
   // console.log('Target is', event.target.getAttribute('id'))
   // Add a check here to see if any item in game array is 'a'
-  if (gameArray.some(item => item === 'a')) {
+  if (gameArray.some(item => item === '')) {
     const gameCell = event.target.getAttribute('id')
     if (playerTurn === 1) {
       $(event.target).text(userOne)
