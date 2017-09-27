@@ -10,9 +10,13 @@ const onSignUp = (event) => {
   const data = getFormFields(event.target)
   console.log('Data is ', data)
   console.log('onSignUp invoked')
-  api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+  if (data.credentials.email !== '' && data.credentials.password !== '') {
+    api.signUp(data)
+      .then(ui.signUpSuccess)
+      .catch(ui.signUpFailure)
+  } else {
+    ui.signUpFailure()
+  }
 }
 
 const onSignIn = (event) => {

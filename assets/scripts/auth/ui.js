@@ -5,7 +5,17 @@ const store = require('../store')
 const signUpSuccess = (data) => {
   console.log('signUpSuccess invoked. Data is', data)
   $('#signUpModal').modal('hide')
-  $('#signUpSuccessMessageModal').modal('show')
+  document.getElementById('signUpForm').reset()
+  $('#signUpMessage').text('Sign up successful!')
+  $('#signUpMessageModal').modal('show')
+}
+
+const signUpFailure = (error) => {
+  console.log('Error is', error)
+  $('#signUpModal').modal('hide')
+  document.getElementById('signUpForm').reset()
+  $('#signUpMessage').text('Oops! There was an error')
+  $('#signUpMessageModal').modal('show')
 }
 
 const signInSuccess = (data) => {
@@ -28,6 +38,7 @@ const signInFailure = (error) => {
 
 module.exports = {
   signUpSuccess,
+  signUpFailure,
   signInSuccess,
   signInFailure
 }

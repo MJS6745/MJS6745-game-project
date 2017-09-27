@@ -2,6 +2,7 @@
 
 const config = require('../config')
 const store = require('../store')
+const ui = require('./ui')
 
 const signUp = (data) => {
   console.log('Sign Up API invoked')
