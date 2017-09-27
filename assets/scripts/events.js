@@ -215,7 +215,9 @@ const makeSelection = (event) => {
         'over': false
       }
     }
-    gameEvents.updateGame(currentGameData)
+    if (store.user !== undefined && store.user !== null) {
+      gameEvents.updateGame(currentGameData)
+    }
     // Call a method here to check for a win
     if (checkForWin(gameArray)) {
       let playerSymbol = ''
