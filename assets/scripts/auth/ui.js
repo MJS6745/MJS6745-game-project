@@ -52,11 +52,24 @@ const changePasswordFailure = (error) => {
   $('#changePasswordMessageModal').modal('show')
 }
 
+const signOutSuccess = () => {
+  console.log('signOutSuccess invoked')
+  console.log('Store data before clear is', store.user)
+  store.user = null
+  console.log('Store data after clear is', store.user)
+}
+
+const signOutFailure = () => {
+
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }

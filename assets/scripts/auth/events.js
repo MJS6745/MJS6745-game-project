@@ -45,7 +45,7 @@ const onChangePassword = (event) => {
 
 const checkForLogin = (event) => {
   console.log('Current store data is', store.data)
-  if (store.data !== undefined) {
+  if (store.user !== undefined) {
     return true
   } else {
     $('#changePasswordMessage').text('Oops! Looks like youre not logged in yet')
@@ -54,11 +54,21 @@ const checkForLogin = (event) => {
   }
 }
 
+const onSignOut = (event) => {
+  event.preventDefault()
+  console.log('onSignOut invoked. Target is', event.target)
+  console.log('Store data is', store.user)
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
 const addHandlers = () => {
   $('#signUpForm').on('submit', onSignUp)
   $('#signInForm').on('submit', onSignIn)
   $('#changePasswordForm').on('submit', onChangePassword)
-  // $('#changePasswordButton').on('click', checkForLogin)
+  $('#changePasswordButton').on('click', checkForLogin)
+  $('#signOutForm').on('submit', onSignOut)
 }
 
 module.exports = {
