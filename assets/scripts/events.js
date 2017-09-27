@@ -4,6 +4,7 @@ let userOne = ''
 let userTwo = ''
 let playerTurn = 0
 const gameArray = ['', '', '', '', '', '', '', '', '']
+let gameStartFlag = false
 
 const clearBoard = (array) => {
   for (let i = 0; i < array.length; i++) {
@@ -12,6 +13,7 @@ const clearBoard = (array) => {
   $('.gameboard').children('div').text('')
 }
 const userSelectX = () => {
+  gameStartFlag = true
   console.log('userSelectX invoked')
   userOne = 'x'
   userTwo = 'o'
@@ -24,6 +26,7 @@ const userSelectX = () => {
   $('#iconSelectModal').modal('hide')
 }
 const userSelectO = () => {
+  gameStartFlag = true
   console.log('userSelectO invoked')
   userOne = 'o'
   userTwo = 'x'
@@ -82,6 +85,7 @@ const checkForWin = (array) => {
   if (!gameArray.some(item => item === '')) {
     $('#drawMessageModal').modal('show')
     clearBoard(gameArray)
+    gameStartFlag = false
   }
 }
 
@@ -120,7 +124,7 @@ const makeSelection = (event) => {
   // console.log('Target is', event.target.getAttribute('id'))
   // Add a check here to see if any item in game array is 'a'
   // checkForInput(event.target.getAttribute('id'))
-  if (gameArray.some(item => item === '') && checkForInput(event.target.getAttribute('id'))) {
+  if (gameArray.some(item => item === '') && checkForInput(event.target.getAttribute('id')) && gameStartFlag) {
     const gameCell = event.target.getAttribute('id')
     if (playerTurn === 1) {
       $(event.target).text(userOne)
@@ -187,7 +191,10 @@ const makeSelection = (event) => {
       $('#winMessageModal').modal('show')
       // Will likely need to add in the AJAX calls here to export data
       clearBoard(gameArray)
+      gameStartFlag = false
     }
+  } else {
+    $('#newgameMessageModal').modal('show')
   }
 }
 
