@@ -57,10 +57,17 @@ const signOutSuccess = () => {
   console.log('Store data before clear is', store.user)
   store.user = null
   console.log('Store data after clear is', store.user)
+  $('#signOutModal').modal('hide')
+  $('#signOutMessage').text('You have been signed out successfully')
+  $('#signOutMessageModal').modal('show')
 }
 
-const signOutFailure = () => {
-
+const signOutFailure = (error) => {
+  console.log('signOutFailure invoked')
+  console.log('Error is', error)
+  $('#signOutModal').modal('hide')
+  $('#signOutMessage').text('Oops! There was an error')
+  $('#signOutMessageModal').modal('show')
 }
 
 module.exports = {
