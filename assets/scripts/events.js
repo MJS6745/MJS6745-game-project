@@ -3,12 +3,22 @@
 const gameApi = require('./gameapi/api')
 const gameEvents = require('./gameapi/events')
 const store = require('./store')
+const currentGameData = {
+  'game': {
+    'cell': {
+      'index': 0,
+      'value': ''
+    },
+    'over': false
+  }
+}
 
 let userOne = ''
 let userTwo = ''
 let playerTurn = 0
 const gameArray = ['', '', '', '', '', '', '', '', '']
 let gameStartFlag = false
+let drawFlag = false
 
 const clearBoard = (array) => {
   for (let i = 0; i < array.length; i++) {
@@ -17,7 +27,9 @@ const clearBoard = (array) => {
   $('.gameboard').children('div').text('')
 }
 const startNewGame = () => {
+  currentGameData.game.over = false
   gameStartFlag = true
+  drawFlag = false
   console.log('startNewGame invoked')
   userOne = 'x'
   userTwo = 'o'
@@ -92,6 +104,12 @@ const checkForWin = (array) => {
   }
   if (!gameArray.some(item => item === '')) {
     $('#drawMessageModal').modal('show')
+    drawFlag = true
+    currentGameData.game.over = true
+    console.log('Current game over status is', currentGameData.game.over)
+    if (store.user !== undefined && store.user !== null) {
+      gameEvents.updateGame(currentGameData)
+    }
     clearBoard(gameArray)
     gameStartFlag = false
   }
@@ -206,15 +224,17 @@ const makeSelection = (event) => {
     }
     console.log('gameArray is ', gameArray)
     // Call method here to update the game board
-    const currentGameData = {
-      'game': {
-        'cell': {
-          'index': currentIndex,
-          'value': currentValue
-        },
-        'over': false
-      }
-    }
+    // const currentGameData = {
+    //   'game': {
+    //     'cell': {
+    //       'index': currentIndex,
+    //       'value': currentValue
+    //     },
+    //     'over': false
+    //   }
+    // }
+    currentGameData.game.cell.index = currentIndex
+    currentGameData.game.cell.value = currentValue
     if (store.user !== undefined && store.user !== null) {
       gameEvents.updateGame(currentGameData)
     }
