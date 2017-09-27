@@ -19,6 +19,10 @@ const gameStats = (data) => {
   }
   console.log('Total games are', totalGames)
   console.log('Total finished games are', totalFinishedGames)
+  $('#getGamesModal').modal('hide')
+  $('#totalGames').text('Total games played: ' + totalGames)
+  $('#totalFinishedGames').text('Total finished games: ' + totalFinishedGames)
+  $('#getGamesMessageModal').modal('show')
 }
 
 const createGameSuccess = (data) => {
