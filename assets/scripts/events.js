@@ -1,5 +1,8 @@
 'use strict'
 
+const gameApi = require('./gameapi/api')
+const gameEvents = require('./gameapi/events')
+
 let userOne = ''
 let userTwo = ''
 let playerTurn = 0
@@ -22,6 +25,8 @@ const userSelectX = () => {
   console.log('userTwo is ', userTwo)
   // Add a method here to clear game board
   clearBoard(gameArray)
+  // Next line is where the API for create game should go
+  gameEvents.createGame()
   // $('.gameboard').children('div').text('')
   $('#iconSelectModal').modal('hide')
 }
