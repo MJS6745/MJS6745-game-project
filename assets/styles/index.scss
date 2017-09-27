@@ -20,7 +20,10 @@ $game-board-border: 2px solid #3f3f3f;
   width: 100px;
   height: 100px;
   float: left;
-  color: #a5a2a2
+  color: #a5a2a2;
+  text-align: center;
+  padding-top: 14px;
+  font-size: 45px;
 }
 #zero, #one, #two, #three, #four, #five {
   border-bottom: $game-board-border;
