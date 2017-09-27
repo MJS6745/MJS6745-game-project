@@ -9,6 +9,7 @@ const clearBoard = (array) => {
   for (let i = 0; i < array.length; i++) {
     array[i] = ''
   }
+  $('.gameboard').children('div').text('')
 }
 const userSelectX = () => {
   console.log('userSelectX invoked')
@@ -19,7 +20,7 @@ const userSelectX = () => {
   console.log('userTwo is ', userTwo)
   // Add a method here to clear game board
   clearBoard(gameArray)
-  $('.gameboard').children('div').text('')
+  // $('.gameboard').children('div').text('')
   $('#iconSelectModal').modal('hide')
 }
 const userSelectO = () => {
@@ -31,7 +32,7 @@ const userSelectO = () => {
   console.log('userTwo is ', userTwo)
   // Add a method here to clear game board
   clearBoard(gameArray)
-  $('.gameboard').children('div').text('')
+  // $('.gameboard').children('div').text('')
   $('#iconSelectModal').modal('hide')
 }
 const checkForWin = (array) => {
@@ -80,6 +81,7 @@ const checkForWin = (array) => {
   }
   if (!gameArray.some(item => item === '')) {
     $('#drawMessageModal').modal('show')
+    clearBoard(gameArray)
   }
 }
 
@@ -171,8 +173,20 @@ const makeSelection = (event) => {
     console.log('gameArray is ', gameArray)
     // Call a method here to check for a win
     if (checkForWin(gameArray)) {
+      let playerSymbol = ''
+      let playerName = ''
+      if (playerTurn === 2) {
+        playerSymbol = userOne
+        playerName = 'Player One'
+      } else if (playerTurn === 1) {
+        playerSymbol = userTwo
+        playerName = 'Player Two'
+      }
       console.log('Game over')
+      $('#winMessage').text('The winner is ' + playerSymbol.toUpperCase() + '!! Congrats to ' + playerName)
       $('#winMessageModal').modal('show')
+      // Will likely need to add in the AJAX calls here to export data
+      clearBoard(gameArray)
     }
   }
 }
