@@ -10,8 +10,11 @@ const createGameSuccess = (data) => {
 const createGameFailure = (error) => {
   console.log('createGameFailure invoked. Error is', error)
 }
-
+const updateGameSuccess = (data) => {
+  console.log('Update game success invoked. Data returned is', data)
+}
 module.exports = {
   createGameSuccess,
-  createGameFailure
+  createGameFailure,
+  updateGameSuccess
 }

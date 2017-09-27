@@ -134,55 +134,88 @@ const makeSelection = (event) => {
   // checkForInput(event.target.getAttribute('id'))
   if (gameArray.some(item => item === '') && checkForInput(event.target.getAttribute('id')) && gameStartFlag) {
     const gameCell = event.target.getAttribute('id')
+    let currentIndex = 0
+    let currentValue = ''
     if (playerTurn === 1) {
       $(event.target).text(userOne)
+      currentValue = userOne
     } else {
       $(event.target).text(userTwo)
+      currentValue = userTwo
     }
     if (playerTurn === 1) {
       if (gameCell === 'zero') {
         gameArray[0] = userOne
+        currentIndex = 0
       } else if (gameCell === 'one') {
         gameArray[1] = userOne
+        currentIndex = 1
       } else if (gameCell === 'two') {
         gameArray[2] = userOne
+        currentIndex = 2
       } else if (gameCell === 'three') {
         gameArray[3] = userOne
+        currentIndex = 3
       } else if (gameCell === 'four') {
         gameArray[4] = userOne
+        currentIndex = 4
       } else if (gameCell === 'five') {
         gameArray[5] = userOne
+        currentIndex = 5
       } else if (gameCell === 'six') {
         gameArray[6] = userOne
+        currentIndex = 6
       } else if (gameCell === 'seven') {
         gameArray[7] = userOne
+        currentIndex = 7
       } else if (gameCell === 'eight') {
         gameArray[8] = userOne
+        currentIndex = 8
       }
       playerTurn = 2
     } else {
       if (gameCell === 'zero') {
         gameArray[0] = userTwo
+        currentIndex = 0
       } else if (gameCell === 'one') {
         gameArray[1] = userTwo
+        currentIndex = 1
       } else if (gameCell === 'two') {
         gameArray[2] = userTwo
+        currentIndex = 2
       } else if (gameCell === 'three') {
         gameArray[3] = userTwo
+        currentIndex = 3
       } else if (gameCell === 'four') {
         gameArray[4] = userTwo
+        currentIndex = 4
       } else if (gameCell === 'five') {
         gameArray[5] = userTwo
+        currentIndex = 5
       } else if (gameCell === 'six') {
         gameArray[6] = userTwo
+        currentIndex = 6
       } else if (gameCell === 'seven') {
         gameArray[7] = userTwo
+        currentIndex = 7
       } else if (gameCell === 'eight') {
         gameArray[8] = userTwo
+        currentIndex = 8
       }
       playerTurn = 1
     }
     console.log('gameArray is ', gameArray)
+    // Call method here to update the game board
+    const currentGameData = {
+      'game': {
+        'cell': {
+          'index': currentIndex,
+          'value': currentValue
+        },
+        'over': false
+      }
+    }
+    gameEvents.updateGame(currentGameData)
     // Call a method here to check for a win
     if (checkForWin(gameArray)) {
       let playerSymbol = ''

@@ -14,6 +14,20 @@ const newGame = () => {
   })
 }
 
+const apiUpdateGame = (data) => {
+  console.log('API update game invoked')
+  console.log('Data being passed is', data)
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  newGame
+  newGame,
+  apiUpdateGame
 }
