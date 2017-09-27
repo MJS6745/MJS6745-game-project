@@ -207,6 +207,37 @@
               </div>
             </div>
             <!-- Modal for sign in success message end -->
+
+            <!-- Modal for change pw start -->
+            <!-- Button -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordModal">
+              Change Password
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Change Password</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="" id="changePasswordForm">
+                      <input type="password" name="passwords[old]" placeholder="Old Password">
+                      <input type="password" name="passwords[new]" placeholder="New Password">
+                      <button type="submit" class="btn btn-primary">Change Password</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for change pw end -->
         </div>
       </div>
     </div>

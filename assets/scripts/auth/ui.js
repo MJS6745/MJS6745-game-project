@@ -36,9 +36,19 @@ const signInFailure = (error) => {
   $('#signInMessageModal').modal('show')
 }
 
+const changePasswordSuccess = (data) => {
+  console.log('changePasswordSuccess invoked. Data is ', data)
+}
+
+const changePasswordFailure = (error) => {
+  console.log('changePasswordFailure invoked. Error is', error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }
