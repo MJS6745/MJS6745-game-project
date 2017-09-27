@@ -235,6 +235,10 @@ const makeSelection = (event) => {
       // Will likely need to add in the AJAX calls here to export data
       clearBoard(gameArray)
       gameStartFlag = false
+      currentGameData.game.over = true
+      if (store.user !== undefined && store.user !== null) {
+        gameEvents.updateGame(currentGameData)
+      }
     }
   } else {
     $('#newgameMessageModal').modal('show')

@@ -27,7 +27,12 @@ const apiUpdateGame = (data) => {
   })
 }
 
+const apiGetGames = () => {
+
+}
+
 module.exports = {
   newGame,
-  apiUpdateGame
+  apiUpdateGame,
+  apiGetGames
 }

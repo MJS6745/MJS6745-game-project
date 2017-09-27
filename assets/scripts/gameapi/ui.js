@@ -13,8 +13,12 @@ const createGameFailure = (error) => {
 const updateGameSuccess = (data) => {
   console.log('Update game success invoked. Data returned is', data)
 }
+const updateGameFailure = (error) => {
+  console.log('Update game failed. Error is ', error)
+}
 module.exports = {
   createGameSuccess,
   createGameFailure,
-  updateGameSuccess
+  updateGameSuccess,
+  updateGameFailure
 }
