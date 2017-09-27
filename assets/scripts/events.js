@@ -260,6 +260,8 @@ const makeSelection = (event) => {
         gameEvents.updateGame(currentGameData)
       }
     }
+  } else if (gameArray.some(item => item === '') && !checkForInput(event.target.getAttribute('id')) && gameStartFlag) {
+    return false
   } else {
     $('#newgameMessageModal').modal('show')
   }
