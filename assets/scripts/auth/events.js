@@ -95,7 +95,7 @@ const addHandlers = () => {
   $('#changePasswordForm').on('submit', onChangePassword)
   // $('#changePasswordButton').on('click', checkForLogin)
   $('#signOutForm').on('submit', onSignOut)
-  $('getGamesForm').on('submit', gameEvents.getGames)
+  $('#getGamesForm').on('submit', gameEvents.getGames)
   // $('#signOutButton').on('click', attemptLogout)
 }
 

@@ -21,6 +21,10 @@ const updateGame = (data) => {
 }
 const getGames = (event) => {
   event.preventDefault()
+  console.log('Get games in gameapi invoked')
+  gameApi.apiGetGames()
+    .then(gameUi.getGameSuccess)
+    .catch(gameUi.getGameFailure)
 }
 
 module.exports = {

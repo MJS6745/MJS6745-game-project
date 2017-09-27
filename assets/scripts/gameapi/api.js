@@ -28,7 +28,14 @@ const apiUpdateGame = (data) => {
 }
 
 const apiGetGames = () => {
-
+  console.log('apiGetGames invoked')
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
 }
 
 module.exports = {
