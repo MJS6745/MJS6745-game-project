@@ -22,12 +22,14 @@ const updateGame = (data) => {
 const getGames = (event) => {
   event.preventDefault()
   console.log('Get games in gameapi invoked')
-  if (store.user !== undefined) {
+  if (store.user !== undefined && store.user !== null) {
     gameApi.apiGetGames()
       .then(gameUi.getGameSuccess)
       .catch(gameUi.getGameFailure)
   } else {
     $('#getGamesMessage').text('Oops! You need to log in first')
+    $('#totalGames').text('')
+    $('#totalFinishedGames').text('')
     $('#getGamesMessageModal').modal('show')
     $('#getGamesModal').modal('hide')
     return false
