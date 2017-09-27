@@ -14,8 +14,17 @@ const onSignUp = (event) => {
     .then(ui.signUpSuccess)
 }
 
+const onSignIn = (event) => {
+  event.preventDefault()
+  console.log('onSignIn invoked')
+  const data = getFormFields(event.target)
+  api.signIn(data)
+    .then(ui.signInSuccess)
+}
+
 const addHandlers = () => {
   $('#signUpForm').on('submit', onSignUp)
+  $('#signInForm').on('submit', onSignIn)
 }
 
 module.exports = {
