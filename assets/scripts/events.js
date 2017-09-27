@@ -2,6 +2,7 @@
 
 const gameApi = require('./gameapi/api')
 const gameEvents = require('./gameapi/events')
+const store = require('./store')
 
 let userOne = ''
 let userTwo = ''
@@ -15,9 +16,9 @@ const clearBoard = (array) => {
   }
   $('.gameboard').children('div').text('')
 }
-const userSelectX = () => {
+const startNewGame = () => {
   gameStartFlag = true
-  console.log('userSelectX invoked')
+  console.log('startNewGame invoked')
   userOne = 'x'
   userTwo = 'o'
   playerTurn = 1
@@ -26,7 +27,9 @@ const userSelectX = () => {
   // Add a method here to clear game board
   clearBoard(gameArray)
   // Next line is where the API for create game should go
-  gameEvents.createGame()
+  if (store.user !== undefined && store.user !== null) {
+    gameEvents.createGame()
+  }
   // $('.gameboard').children('div').text('')
   $('#iconSelectModal').modal('hide')
 }
@@ -204,7 +207,7 @@ const makeSelection = (event) => {
 }
 
 module.exports = {
-  userSelectX,
+  startNewGame,
   userSelectO,
   makeSelection
 }

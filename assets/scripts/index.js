@@ -15,8 +15,8 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 // require('./example')
 $(() => {
-  $('#chooseX').on('click', events.userSelectX)
-  $('#chooseO').on('click', events.userSelectO)
+  $('#startYes').on('click', events.startNewGame)
+  // $('#chooseO').on('click', events.userSelectO)
   // Selector for click event on the individual game icons
   $('#zero').on('click', events.makeSelection)
   $('#one').on('click', events.makeSelection)
