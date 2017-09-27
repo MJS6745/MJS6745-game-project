@@ -13,10 +13,21 @@ const signInSuccess = (data) => {
   store.user = data.user
   console.log('Store data is currently', store.user)
   $('#signInModal').modal('hide')
-  $('#signInSuccessMessageModal').modal('show')
+  document.getElementById('signInForm').reset()
+  $('#signInMessage').text('Sign in successful!')
+  $('#signInMessageModal').modal('show')
+}
+
+const signInFailure = (error) => {
+  console.log('Error is', error)
+  $('#signInModal').modal('hide')
+  document.getElementById('signInForm').reset()
+  $('#signInMessage').text('Oops! Invalid login')
+  $('#signInMessageModal').modal('show')
 }
 
 module.exports = {
   signUpSuccess,
-  signInSuccess
+  signInSuccess,
+  signInFailure
 }

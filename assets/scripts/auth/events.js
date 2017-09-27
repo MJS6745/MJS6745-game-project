@@ -12,6 +12,7 @@ const onSignUp = (event) => {
   console.log('onSignUp invoked')
   api.signUp(data)
     .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
 }
 
 const onSignIn = (event) => {
@@ -20,6 +21,7 @@ const onSignIn = (event) => {
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const addHandlers = () => {
