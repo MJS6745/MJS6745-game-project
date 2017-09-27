@@ -80,11 +80,42 @@ const checkForWin = (array) => {
   }
 }
 
+// This function will check to see if there is already input on the game square
+// and return true or false
+const checkForInput = (id) => {
+  let gameSquare = 0
+  if (id === 'zero') {
+    gameSquare = 0
+  } else if (id === 'one') {
+    gameSquare = 1
+  } else if (id === 'two') {
+    gameSquare = 2
+  } else if (id === 'three') {
+    gameSquare = 3
+  } else if (id === 'four') {
+    gameSquare = 4
+  } else if (id === 'five') {
+    gameSquare = 5
+  } else if (id === 'six') {
+    gameSquare = 6
+  } else if (id === 'seven') {
+    gameSquare = 7
+  } else if (id === 'eight') {
+    gameSquare = 8
+  }
+  if (gameArray[gameSquare] === '') {
+    return true
+  } else {
+    return false
+  }
+}
+
 const makeSelection = (event) => {
   // console.log('makeSelection invoked')
   // console.log('Target is', event.target.getAttribute('id'))
   // Add a check here to see if any item in game array is 'a'
-  if (gameArray.some(item => item === '')) {
+  // checkForInput(event.target.getAttribute('id'))
+  if (gameArray.some(item => item === '') && checkForInput(event.target.getAttribute('id'))) {
     const gameCell = event.target.getAttribute('id')
     if (playerTurn === 1) {
       $(event.target).text(userOne)
