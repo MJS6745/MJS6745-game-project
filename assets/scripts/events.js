@@ -138,6 +138,7 @@ const makeSelection = (event) => {
     // Call a method here to check for a win
     if (checkForWin(gameArray)) {
       console.log('Game over')
+      $('#winMessageModal').modal('show')
     }
   }
 }
