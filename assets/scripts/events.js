@@ -78,6 +78,9 @@ const checkForWin = (array) => {
     winFlag = true
     return winFlag
   }
+  if (!gameArray.some(item => item === '')) {
+    $('#drawMessageModal').modal('show')
+  }
 }
 
 // This function will check to see if there is already input on the game square
