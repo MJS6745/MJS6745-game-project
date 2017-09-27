@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
 const onSignUp = (event) => {
   event.preventDefault()
@@ -33,15 +34,31 @@ const onChangePassword = (event) => {
   console.log('onChangePassword invoked')
   const data = getFormFields(event.target)
   console.log('Data is', data)
-  api.changePassword(data)
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
+  if (data.passwords.old !== '' && data.passwords.new !== '') {
+    api.changePassword(data)
+      .then(ui.changePasswordSuccess)
+      .catch(ui.changePasswordFailure)
+  } else {
+    ui.changePasswordFailure()
+  }
+}
+
+const checkForLogin = (event) => {
+  console.log('Current store data is', store.data)
+  if (store.data !== undefined) {
+    return true
+  } else {
+    $('#changePasswordMessage').text('Oops! Looks like youre not logged in yet')
+    $('#changePasswordMessageModal').modal('show')
+    $('#changePasswordModal').modal('hide')
+  }
 }
 
 const addHandlers = () => {
   $('#signUpForm').on('submit', onSignUp)
   $('#signInForm').on('submit', onSignIn)
   $('#changePasswordForm').on('submit', onChangePassword)
+  // $('#changePasswordButton').on('click', checkForLogin)
 }
 
 module.exports = {

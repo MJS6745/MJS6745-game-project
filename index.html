@@ -190,7 +190,7 @@
             </div>
             <!-- Modal for sign in end -->
 
-            <!--Modal for sign in success message-->
+            <!--Modal for sign in message-->
             <div class="modal fade" id="signInMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -206,11 +206,11 @@
                 </div>
               </div>
             </div>
-            <!-- Modal for sign in success message end -->
+            <!-- Modal for sign in success end -->
 
             <!-- Modal for change pw start -->
             <!-- Button -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" id="changePasswordButton" data-target="#changePasswordModal">
               Change Password
             </button>
 
@@ -238,6 +238,24 @@
               </div>
             </div>
             <!-- Modal for change pw end -->
+
+            <!--Modal for change pw message-->
+            <div class="modal fade" id="changePasswordMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="changePasswordMessage">All set! Your password has been updated</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for sign change pw message end -->
         </div>
       </div>
     </div>
