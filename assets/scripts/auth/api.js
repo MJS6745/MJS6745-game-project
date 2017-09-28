@@ -14,6 +14,7 @@ const signUp = (data) => {
 }
 
 const signIn = (data) => {
+  console.log('Data being passed to the API is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',

@@ -19,9 +19,9 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  console.log('signInSuccess invoked. Data is', data)
+  console.log('signInSuccess invoked. Data coming back from sign in API is', data)
   store.user = data.user
-  console.log('Store data is currently', store.user)
+  console.log('Store data after sign in API call is currently', store.user)
   $('#signInModal').modal('hide')
   document.getElementById('signInForm').reset()
   $('#signInMessage').text('Sign in successful!')
@@ -29,6 +29,8 @@ const signInSuccess = (data) => {
   $('#changePasswordButton').show()
   $('#signOutButton').show()
   $('#getGamesButton').show()
+  $('#signUpButton').hide()
+  $('#signInButton').hide()
 }
 
 const signInFailure = (error) => {
@@ -66,6 +68,8 @@ const signOutSuccess = () => {
   $('#changePasswordButton').hide()
   $('#signOutButton').hide()
   $('#getGamesButton').hide()
+  $('#signUpButton').show()
+  $('#signInButton').show()
 }
 
 const signOutFailure = (error) => {
