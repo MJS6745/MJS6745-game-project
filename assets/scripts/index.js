@@ -27,5 +27,6 @@ $(() => {
   $('#six').on('click', events.makeSelection)
   $('#seven').on('click', events.makeSelection)
   $('#eight').on('click', events.makeSelection)
+  // $('#getGamesButton').hide()
   apiEvents.addHandlers()
 })
