@@ -13,6 +13,13 @@ body {
   // border: 1px solid black;
   height: 360px;
 }
+.signature {
+  text-decoration: underline;
+}
+#currentTurn {
+  font-size: 15px;
+  padding: 10px;
+}
 .gameboard {
   width: 340px;
   height: 340px;

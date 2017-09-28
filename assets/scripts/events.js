@@ -29,6 +29,7 @@ const clearBoard = (array) => {
   $('.gameboard').children('div').removeClass('selectx')
   $('.gameboard').children('div').removeClass('selecto')
   // End new code to remove classes
+  $('#currentTurn').hide()
 }
 const startNewGame = () => {
   currentGameData.game.over = false
@@ -48,6 +49,9 @@ const startNewGame = () => {
   }
   // $('.gameboard').children('div').text('')
   $('#iconSelectModal').modal('hide')
+  // New code for dispaying user turn
+  $('#currentTurn').text('Player turn: X')
+  $('#currentTurn').show()
 }
 const userSelectO = () => {
   gameStartFlag = true
@@ -178,6 +182,12 @@ const makeSelection = (event) => {
         $(event.target).addClass('selecto')
       }
       // End new code for styling cell
+    }
+    // Code to update player turn on front End
+    if (currentValue === 'x') {
+      $('#currentTurn').text('Player turn: O')
+    } else {
+      $('#currentTurn').text('Player turn: X')
     }
     if (playerTurn === 1) {
       if (gameCell === 'zero') {

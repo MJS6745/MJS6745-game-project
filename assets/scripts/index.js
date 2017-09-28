@@ -30,5 +30,6 @@ $(() => {
   $('#changePasswordButton').hide()
   $('#signOutButton').hide()
   $('#getGamesButton').hide()
+  $('#currentTurn').hide()
   apiEvents.addHandlers()
 })
