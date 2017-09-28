@@ -3,8 +3,12 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 $game-board-border: 2px solid #3f3f3f;
 
+body {
+  background-color: #dcdee2;
+}
+
 .game {
-  border: 1px solid black;
+  // border: 1px solid black;
   height: 360px;
 }
 .gameboard {
