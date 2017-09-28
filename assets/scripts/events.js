@@ -30,6 +30,8 @@ const clearBoard = (array) => {
   $('.gameboard').children('div').removeClass('selecto')
   // End new code to remove classes
   $('#currentTurn').hide()
+  $('#currentTurn').removeClass('selectx')
+  $('#currentTurn').removeClass('selecto')
 }
 const startNewGame = () => {
   currentGameData.game.over = false
@@ -50,6 +52,7 @@ const startNewGame = () => {
   // $('.gameboard').children('div').text('')
   $('#iconSelectModal').modal('hide')
   // New code for dispaying user turn
+  $('#currentTurn').addClass('selectx')
   $('#currentTurn').text('Player turn: X')
   $('#currentTurn').show()
 }
@@ -185,8 +188,12 @@ const makeSelection = (event) => {
     }
     // Code to update player turn on front End
     if (currentValue === 'x') {
+      $('#currentTurn').removeClass('selectx')
+      $('#currentTurn').addClass('selecto')
       $('#currentTurn').text('Player turn: O')
     } else {
+      $('#currentTurn').removeClass('selecto')
+      $('#currentTurn').addClass('selectx')
       $('#currentTurn').text('Player turn: X')
     }
     if (playerTurn === 1) {

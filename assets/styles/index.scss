@@ -8,7 +8,6 @@ $o-color: #609b61;
 body {
   background-color: #dcdee2;
 }
-
 .game {
   // border: 1px solid black;
   height: 360px;
@@ -17,8 +16,9 @@ body {
   text-decoration: underline;
 }
 #currentTurn {
-  font-size: 15px;
+  font-size: 20px;
   padding: 10px;
+  font-weight: bold;
 }
 .gameboard {
   width: 340px;
