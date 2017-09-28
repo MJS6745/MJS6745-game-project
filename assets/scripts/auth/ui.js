@@ -26,6 +26,9 @@ const signInSuccess = (data) => {
   document.getElementById('signInForm').reset()
   $('#signInMessage').text('Sign in successful!')
   $('#signInMessageModal').modal('show')
+  $('#changePasswordButton').show()
+  $('#signOutButton').show()
+  $('#getGamesButton').show()
 }
 
 const signInFailure = (error) => {
@@ -60,6 +63,9 @@ const signOutSuccess = () => {
   $('#signOutModal').modal('hide')
   $('#signOutMessage').text('You have been signed out successfully')
   $('#signOutMessageModal').modal('show')
+  $('#changePasswordButton').hide()
+  $('#signOutButton').hide()
+  $('#getGamesButton').hide()
 }
 
 const signOutFailure = (error) => {
