@@ -270,5 +270,6 @@ const makeSelection = (event) => {
 module.exports = {
   startNewGame,
   userSelectO,
-  makeSelection
+  makeSelection,
+  gameArray
 }

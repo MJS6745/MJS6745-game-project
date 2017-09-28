@@ -5,6 +5,7 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 const gameEvents = require('../gameapi/events')
+const events = require('../events')
 
 const onSignUp = (event) => {
   event.preventDefault()
@@ -27,9 +28,16 @@ const onSignIn = (event) => {
   const data = getFormFields(event.target)
   console.log('Target data on sign in is', event.target)
   console.log('Store data before API call is', store.data)
-  api.signIn(data)
-    .then(ui.signInSuccess)
-    .catch(ui.signInFailure)
+  console.log('Game array is', events.gameArray)
+  if (events.gameArray.every(cell => cell === '')) {
+    api.signIn(data)
+      .then(ui.signInSuccess)
+      .catch(ui.signInFailure)
+  } else {
+    console.log('Finsih game required is at place in code')
+    $('#signInModal').modal('hide')
+    $('#finishRequiredMessageModal').modal('show')
+  }
 }
 
 const onChangePassword = (event) => {
