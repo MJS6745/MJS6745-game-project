@@ -30,6 +30,9 @@ const clearBoard = (array) => {
   $('.gameboard').children('div').removeClass('selecto')
   // End new code to remove classes
   $('#currentTurn').hide()
+  // $('#currentTurn').fadeOut(1000)
+  // $('#currentTurn').delay(1000)
+  // $('#currentTurn').fadeOut(1000)
   $('#currentTurn').removeClass('selectx')
   $('#currentTurn').removeClass('selecto')
 }
@@ -54,7 +57,8 @@ const startNewGame = () => {
   // New code for dispaying user turn
   $('#currentTurn').addClass('selectx')
   $('#currentTurn').text('Player turn: X')
-  $('#currentTurn').show()
+  // $('#currentTurn').show()
+  $('#currentTurn').fadeIn(1000)
 }
 const userSelectO = () => {
   gameStartFlag = true
