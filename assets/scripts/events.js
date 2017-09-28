@@ -25,6 +25,10 @@ const clearBoard = (array) => {
     array[i] = ''
   }
   $('.gameboard').children('div').text('')
+  // New code to remove classes
+  $('.gameboard').children('div').removeClass('selectx')
+  $('.gameboard').children('div').removeClass('selecto')
+  // End new code to remove classes
 }
 const startNewGame = () => {
   currentGameData.game.over = false
@@ -157,9 +161,23 @@ const makeSelection = (event) => {
     if (playerTurn === 1) {
       $(event.target).text(userOne)
       currentValue = userOne
+      //  Start new code for styling cell
+      if (currentValue === 'x') {
+        $(event.target).addClass('selectx')
+      } else if (currentValue === 'o') {
+        $(event.target).addClass('selecto')
+      }
+      // End new code for styling cell
     } else {
       $(event.target).text(userTwo)
       currentValue = userTwo
+      //  Start new code for styling cell
+      if (currentValue === 'x') {
+        $(event.target).addClass('selectx')
+      } else if (currentValue === 'o') {
+        $(event.target).addClass('selecto')
+      }
+      // End new code for styling cell
     }
     if (playerTurn === 1) {
       if (gameCell === 'zero') {

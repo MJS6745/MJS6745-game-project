@@ -2,6 +2,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 $game-board-border: 2px solid #3f3f3f;
+$x-color: #5d89e2;
+$o-color: #609b61;
 
 body {
   background-color: #dcdee2;
@@ -35,4 +37,10 @@ body {
 #one, #four, #seven {
   border-left: $game-board-border;
   border-right: $game-board-border;
+}
+.selectx {
+  color: $x-color;
+}
+.selecto {
+  color: $o-color;
 }
