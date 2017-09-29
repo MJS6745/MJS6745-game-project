@@ -4,7 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const newGame = () => {
-  console.log('createGame in game API invoked')
+  // console.log('createGame in game API invoked')
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
@@ -15,8 +15,8 @@ const newGame = () => {
 }
 
 const apiUpdateGame = (data) => {
-  console.log('API update game invoked')
-  console.log('Data being passed is', data)
+  // console.log('API update game invoked')
+  // console.log('Data being passed is', data)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
@@ -28,7 +28,7 @@ const apiUpdateGame = (data) => {
 }
 
 const apiGetGames = () => {
-  console.log('apiGetGames invoked')
+  // console.log('apiGetGames invoked')
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'GET',

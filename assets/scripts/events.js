@@ -40,12 +40,12 @@ const startNewGame = () => {
   currentGameData.game.over = false
   gameStartFlag = true
   drawFlag = false
-  console.log('startNewGame invoked')
+  // console.log('startNewGame invoked')
   userOne = 'x'
   userTwo = 'o'
   playerTurn = 1
-  console.log('userOne is ', userOne)
-  console.log('userTwo is ', userTwo)
+  // console.log('userOne is ', userOne)
+  // console.log('userTwo is ', userTwo)
   // Add a method here to clear game board
   clearBoard(gameArray)
   // Next line is where the API for create game should go
@@ -62,12 +62,12 @@ const startNewGame = () => {
 }
 const userSelectO = () => {
   gameStartFlag = true
-  console.log('userSelectO invoked')
+  // console.log('userSelectO invoked')
   userOne = 'o'
   userTwo = 'x'
   playerTurn = 1
-  console.log('userOne is ', userOne)
-  console.log('userTwo is ', userTwo)
+  // console.log('userOne is ', userOne)
+  // console.log('userTwo is ', userTwo)
   // Add a method here to clear game board
   clearBoard(gameArray)
   // $('.gameboard').children('div').text('')
@@ -83,37 +83,37 @@ const checkForWin = (array) => {
   } else if (playerTurn === 1) {
     playerSymbol = userTwo
   }
-  console.log('Checking this value for win', playerSymbol)
+  // console.log('Checking this value for win', playerSymbol)
   if (gameArray[0] === playerSymbol && gameArray[4] === playerSymbol && gameArray[8] === playerSymbol) {
-    console.log('Winner! Case A. Winner is', playerSymbol)
+    // console.log('Winner! Case A. Winner is', playerSymbol)
     winFlag = true
     return winFlag
   } else if (gameArray[0] === playerSymbol && gameArray[1] === playerSymbol && gameArray[2] === playerSymbol) {
-    console.log('Winner! Case B. Winner is', playerSymbol)
+    // console.log('Winner! Case B. Winner is', playerSymbol)
     winFlag = true
     return winFlag
   } else if (gameArray[1] === playerSymbol && gameArray[4] === playerSymbol && gameArray[7] === playerSymbol) {
-    console.log('Winner! Case C. Winner is', playerSymbol)
+    // console.log('Winner! Case C. Winner is', playerSymbol)
     winFlag = true
     return winFlag
   } else if (gameArray[2] === playerSymbol && gameArray[4] === playerSymbol && gameArray[6] === playerSymbol) {
-    console.log('Winner! Case D. Winner is', playerSymbol)
+    // console.log('Winner! Case D. Winner is', playerSymbol)
     winFlag = true
     return winFlag
   } else if (gameArray[3] === playerSymbol && gameArray[4] === playerSymbol && gameArray[5] === playerSymbol) {
-    console.log('Winner! Case E. Winner is', playerSymbol)
+    // console.log('Winner! Case E. Winner is', playerSymbol)
     winFlag = true
     return winFlag
   } else if (gameArray[6] === playerSymbol && gameArray[7] === playerSymbol && gameArray[8] === playerSymbol) {
-    console.log('Winner! Case F. Winner is', playerSymbol)
+    // console.log('Winner! Case F. Winner is', playerSymbol)
     winFlag = true
     return winFlag
   } else if (gameArray[0] === playerSymbol && gameArray[3] === playerSymbol && gameArray[6] === playerSymbol) {
-    console.log('Winner! Case G. Winner is', playerSymbol)
+    // console.log('Winner! Case G. Winner is', playerSymbol)
     winFlag = true
     return winFlag
   } else if (gameArray[2] === playerSymbol && gameArray[5] === playerSymbol && gameArray[8] === playerSymbol) {
-    console.log('Winner! Case H. Winner is', playerSymbol)
+    // console.log('Winner! Case H. Winner is', playerSymbol)
     winFlag = true
     return winFlag
   }
@@ -121,7 +121,7 @@ const checkForWin = (array) => {
     $('#drawMessageModal').modal('show')
     drawFlag = true
     currentGameData.game.over = true
-    console.log('Current game over status is', currentGameData.game.over)
+    // console.log('Current game over status is', currentGameData.game.over)
     if (store.user !== undefined && store.user !== null) {
       gameEvents.updateGame(currentGameData)
     }
@@ -261,7 +261,7 @@ const makeSelection = (event) => {
       }
       playerTurn = 1
     }
-    console.log('gameArray is ', gameArray)
+    // console.log('gameArray is ', gameArray)
     // Call method here to update the game board
     // const currentGameData = {
     //   'game': {
@@ -288,7 +288,7 @@ const makeSelection = (event) => {
         playerSymbol = userTwo
         playerName = 'Player Two'
       }
-      console.log('Game over')
+      // console.log('Game over')
       $('#winMessage').text('The winner is ' + playerSymbol.toUpperCase() + '!! Congrats to ' + playerName)
       $('#winMessageModal').modal('show')
       // Will likely need to add in the AJAX calls here to export data

@@ -9,10 +9,10 @@ const events = require('../events')
 
 const onSignUp = (event) => {
   event.preventDefault()
-  console.log('Target is', event.target)
+  // console.log('Target is', event.target)
   const data = getFormFields(event.target)
-  console.log('Data is ', data)
-  console.log('onSignUp invoked')
+  // console.log('Data is ', data)
+  // console.log('onSignUp invoked')
   if (data.credentials.email !== '' && data.credentials.password !== '') {
     api.signUp(data)
       .then(ui.signUpSuccess)
@@ -24,17 +24,17 @@ const onSignUp = (event) => {
 
 const onSignIn = (event) => {
   event.preventDefault()
-  console.log('onSignIn invoked')
+  // console.log('onSignIn invoked')
   const data = getFormFields(event.target)
-  console.log('Target data on sign in is', event.target)
-  console.log('Store data before API call is', store.data)
-  console.log('Game array is', events.gameArray)
+  // console.log('Target data on sign in is', event.target)
+  // console.log('Store data before API call is', store.data)
+  // console.log('Game array is', events.gameArray)
   if (events.gameArray.every(cell => cell === '')) {
     api.signIn(data)
       .then(ui.signInSuccess)
       .catch(ui.signInFailure)
   } else {
-    console.log('Finsih game required is at place in code')
+    // console.log('Finsih game required is at place in code')
     $('#signInModal').modal('hide')
     $('#finishRequiredMessageModal').modal('show')
   }
@@ -42,9 +42,9 @@ const onSignIn = (event) => {
 
 const onChangePassword = (event) => {
   event.preventDefault()
-  console.log('onChangePassword invoked')
+  // console.log('onChangePassword invoked')
   const data = getFormFields(event.target)
-  console.log('Data is', data)
+  // console.log('Data is', data)
   if (store.user !== undefined) {
   } else {
     $('#changePasswordMessage').text('Oops! Looks like youre not logged in yet')
@@ -62,7 +62,7 @@ const onChangePassword = (event) => {
 }
 
 const checkForLogin = (event) => {
-  console.log('Current store data is', store.data)
+  // console.log('Current store data is', store.data)
   if (store.user !== undefined) {
     return true
   } else {
@@ -73,7 +73,7 @@ const checkForLogin = (event) => {
 }
 
 const attemptLogout = (event) => {
-  console.log('Current store data is', store.data)
+  // console.log('Current store data is', store.data)
   if (store.user !== undefined) {
     return true
   } else {
@@ -85,8 +85,8 @@ const attemptLogout = (event) => {
 
 const onSignOut = (event) => {
   event.preventDefault()
-  console.log('onSignOut invoked. Target is', event.target)
-  console.log('Store data is', store.user)
+  // console.log('onSignOut invoked. Target is', event.target)
+  // console.log('Store data is', store.user)
   if (store.user !== undefined) {
   } else {
     $('#signOutModal').modal('hide')
