@@ -56,7 +56,7 @@ However, this was turning into a little bit of a "rabbit hole" for me as I would
 
 Included below are links to my wireframes as well as my user stories. Note that I tried multiple times to flip the image and push it to github but for some reason it was continuing to be uploaded upside down. I apologize for any inconvenience
 
-- ['Wireframe'](https://git.generalassemb.ly/MJS6745/game-project-scope-study/blob/response/images/Initial_wireframe.jpg)
+- [Wireframe](https://git.generalassemb.ly/MJS6745/game-project-scope-study/blob/response/images/Initial_wireframe.jpg)
 
 - User stories:
 1. As an existing player I want to login so that my games can be tracked
