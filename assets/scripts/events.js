@@ -310,5 +310,7 @@ module.exports = {
   startNewGame,
   userSelectO,
   makeSelection,
-  gameArray
+  gameArray,
+  gameStartFlag,
+  clearBoard
 }
