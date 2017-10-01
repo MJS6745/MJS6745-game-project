@@ -32,7 +32,7 @@
           </div>
           <div class="col-sm-5 game">
             <div class="gamebutton">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#iconSelectModal">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#iconSelectModal" id="newGameButton">
               Start New Game
               </button>
             </div>
@@ -97,10 +97,13 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h3 class="modal-title" id="newgameMessage">Please click "Start New Game" to play!</h3>
+                    <h3 class="modal-title" id="newgameMessage">Start New Game</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>In order to allow for tracking of games, users must first be signed in and then click the "Start New Game" button before playing.</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
