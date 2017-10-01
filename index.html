@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <h1><span class="selectx">Tic</span>-<span class="selecto">Tac</span>-Toe</h1>
+      <h4 class="signature">By Mark Smets</h4>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-7 game">
+            <div class="gameboard">
+              <div class="gamesquare" id="zero"></div>
+              <div class="gamesquare" id="one"></div>
+              <div class="gamesquare" id="two"></div>
+              <div class="gamesquare" id="three"></div>
+              <div class="gamesquare" id="four"></div>
+              <div class="gamesquare" id="five"></div>
+              <div class="gamesquare" id="six"></div>
+              <div class="gamesquare" id="seven"></div>
+              <div class="gamesquare" id="eight"></div>
+            </div>
+          </div>
+          <div class="col-sm-5 game">
+            <div class="gamebutton">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#iconSelectModal" id="newGameButton">
+              Start New Game
+              </button>
+            </div>
+
+            <!-- Modal for the New Game-->
+            <div class="modal fade" id="iconSelectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Ready to Play?</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <button type="button" id="startYes" class="btn btn-primary">Yes</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Modal new game end-->
+            <!--Modal for Win message -->
+            <div class="modal fade" id="winMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="winMessage">Winner!!</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Modal for Win message end -->
+            <!--Modal for draw/tie message-->
+            <div class="modal fade" id="drawMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="drawMessage">It's a tie! Please start a new game</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for draw/tie message end -->
+            <!--Modal for draw/tie message-->
+            <div class="modal fade" id="newgameMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="newgameMessage">Start New Game</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>In order to allow for tracking of games, users must first be signed in and then click the "Start New Game" button before playing.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for draw/tie message end -->
+
+            <!-- Modal for sign up start -->
+            <!-- Button -->
+            <div class="gamebutton">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal" id="signUpButton">
+                Sign Up
+              </button>
+            </div>
+
+            <!-- Modal for sign up start -->
+            <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Sign Up</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="" id="signUpForm">
+                      <input type="text" name="credentials[email]" placeholder="Enter your email">
+                      <input type="password" name="credentials[password]" placeholder="Enter password">
+                      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+                      <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for sign up end -->
+
+            <!--Modal for sign up success message-->
+            <div class="modal fade" id="signUpMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="signUpMessage">All set! You signed up successfully</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for sign up success message end -->
+
+            <!-- Modal for sign in start -->
+            <!-- Button -->
+            <div class="gamebutton">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal" id="signInButton">
+                Sign In
+              </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Sign In</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="" id="signInForm">
+                      <input type="text" name="credentials[email]" placeholder="Enter your email">
+                      <input type="password" name="credentials[password]" placeholder="Enter password">
+                      <button type="submit" class="btn btn-primary">Sign In</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for sign in end -->
+
+            <!--Modal for sign in message-->
+            <div class="modal fade" id="signInMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="signInMessage">Sign in successful!</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for sign in success end -->
+            <!-- Modal for finish game required start -->
+            <div class="modal fade" id="finishRequiredMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="finishRequiredMessage">Please finish your current game before signing in</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for finish game required end -->
+
+            <!-- Modal for change pw start -->
+            <!-- Button -->
+            <div class="gamebutton">
+              <button type="button" class="btn btn-primary" data-toggle="modal" id="changePasswordButton" data-target="#changePasswordModal">
+                Change Password
+              </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Change Password</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="" id="changePasswordForm">
+                      <input type="password" name="passwords[old]" placeholder="Old Password">
+                      <input type="password" name="passwords[new]" placeholder="New Password">
+                      <button type="submit" class="btn btn-primary">Change Password</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for change pw end -->
+
+            <!--Modal for change pw message-->
+            <div class="modal fade" id="changePasswordMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="changePasswordMessage">All set! Your password has been updated</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for change pw message end -->
+
+            <!-- Modal for sign out start -->
+            <!-- Button -->
+            <div class="gamebutton">
+              <button type="button" class="btn btn-primary" data-toggle="modal" id="signOutButton" data-target="#signOutModal">
+                Sign Out
+              </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Sign Out</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="" id="signOutForm">
+                      <h3>Are you sure you want to sign out?</h3>
+                      <button type="submit" class="btn btn-primary">Yes</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for sign out end -->
+
+            <!--Modal for sign out message-->
+            <div class="modal fade" id="signOutMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="signOutMessage">You have been signed out successfully</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for sign out message end -->
+
+            <!-- Modal for get games start -->
+            <!-- Button -->
+            <div class="gamebutton">
+              <button type="button" class="btn btn-primary" data-toggle="modal" id="getGamesButton" data-target="#getGamesModal">
+                Get Game Stats
+              </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="getGamesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Get Your Game Stats</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="" id="getGamesForm">
+                      <button type="submit" class="btn btn-primary">Get Game Stats</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for get games end -->
+
+            <!-- Modal for get game info start -->
+            <div class="modal fade" id="getGamesMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="getGamesMessage">Here are your game stats</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p id="totalGames"></p>
+                    <p id="totalFinishedGames"></p>
+                    <p id="totalWins"></p>
+                    <p id="totalLosses"></p>
+                    <p id="totalTies"></p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for get game info end -->
+        </div>
+      </div>
+      <div class ="row">
+        <div class="col-sm-12" id="gameStatus">
+          <p id="currentTurn"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
